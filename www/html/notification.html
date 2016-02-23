@@ -1,0 +1,13 @@
+<div class="title">
+		<div class="center-block"><a  href="javascript:history.back()" ><i  style='float:left;' class="fa fa-arrow-left"></i></a>Requests</div>
+</div>
+<div class="extra_space">
+&nbsp;
+</div>
+<div class="container">
+	<div class="col-xs-12">
+	<p style='color:#2e6da4;'>{{ findError }}</p>
+	    <a  ng-repeat='x in requests'  uib-dropdown on-toggle="toggled(open)"><button   uib-dropdown-toggle class="searchsession submit col-xs-12 btn btn-default"><pre style='font-size:0.6em;color:#4479A6;'>This notification is sent you for {{ x.name | capitalize }} -{{ x.instructor}}({{x.date}}) at {{ x.location}}.The Sender is {{x.first_name}} {{x.last_name}} and his/her email address is {{x.email}}</pre>		
+		<p>{{ x.date }}</p></button> <p  class="uib-dropdown-menu" aria-labelledby="simple-dropdown"><strong style='color:#575748' ng-click='cancel(x.request_id,$index)'>Cancel</strong> |  |  <strong style='color:#D1291C' ng-click='accept(x.request_id,$index)'>Accept</strong> </p></a>
+	</div>	
+</div>

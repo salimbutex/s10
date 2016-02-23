@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--meta name="viewport" content="width=device-width, initial-scale=1.0" /-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>StudySesh</title>
+
+<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+<link rel="stylesheet" href="css/font-awesome.css" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,800,700,600' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,500,500italic,700' rel='stylesheet' type='text/css'>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css" >
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="css/bootstrap-theme.min.css" >
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<script src="cordova.js"></script>
+<!---------------Angular JS-------------------->
+<script src="js/min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/ng_route.js"></script>
+<script src="js/ng_animate.js"></script>
+<script src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
+<script src="js/ng_main.js"></script>
+<script src="js/openfb.js"></script>
+<!---------------------- End -------------------->
+<script>	 
+	function facebookLogin() {
+        openFB.login(fbResPonSe,'email');
+    }
+	
+    function fbResPonSe(data){
+	 if(data.status=="connected")
+	 {  
+	        openFB.api({
+            path: '/me',
+            success: function(data) {
+				var pic = 'http://graph.facebook.com/' + data.id + '/picture?type=small';
+				var fullName=data.name;
+				var firstName = fullName.split(' ').slice(0, -1).join(' ');
+				var lastName = fullName.split(' ').slice(-1).join(' ');
+				window.localStorage.setItem("fbid", data.id);
+				window.localStorage.setItem("pic", pic);
+				window.localStorage.setItem("firstName", firstName);
+				window.localStorage.setItem("lastName", lastName);
+				window.localStorage.setItem("fblogin",1);
+			 },
+           error: errorHandler});
+           window.location.href ="#/session";
+	 }
+	 }
+	 
+    function getInfo() {
+        openFB.api({
+            path: '/me',
+            success: function(data) {
+				var pic='http://graph.facebook.com/' + data.id + '/picture?type=small';
+				var fullName=data.name;
+				var firstName = fullName.split(' ').slice(0, -1).join(' ');
+				var lastName = fullName.split(' ').slice(-1).join(' ');
+				window.localStorage.setItem("fbid", data.id);
+				window.localStorage.setItem("pic", pic);
+				window.localStorage.setItem("firstName", firstName);
+				window.localStorage.setItem("lastName", lastName);
+            },
+            error: errorHandler});
+    }
+
+    function share() {
+        openFB.api({
+            method: 'POST',
+            path: '/me/feed',
+            params: {
+                message: 'Testing Facebook APIs'
+            },
+            success: function(data) {
+                alert('the item was posted on Facebook');
+            },
+            error: errorHandler});
+    }
+
+	
+    function revoke() {
+        openFB.revokePermissions(
+                function() {
+                    alert('Permissions revoked');
+                },
+                errorHandler);
+    }
+
+    function errorHandler(error) {
+        alert(error.message);
+    }
+  document.addEventListener("deviceready", yourCallbackFunction, false);
+  
+  function yourCallbackFunction(){ 
+    param={}; param.appId='1665911160362661';
+   openFB.init(param, 'http://localhost/openfb/oauthcallback.html', window.localStorage);
+   } 
+   
+   function gp() {
+       alert('working...');
+	   
+	   window.plugins.googleplus.isAvailable(
+    function (available) {
+      if (available) {
+       alert('yes it is availble');
+      }
+    }
+   );
+   window.plugins.googleplus.trySilentLogin(
+    {'offline': true, // optional and required for Android only - if set to true the plugin will also return the OAuth access token, that can be used to sign in to some third party services that don't accept a Cross-client identity token (ex. Firebase)
+      'webApiKey': 'AIzaSyA7xmWd0SZfDccqbO5WllpJgmkkpzlgC_U', // optional API key of your Web application from Credentials settings of your project - if you set it the returned idToken will allow sign in to services like Azure Mobile Services
+      // there is no API key for Android; you app is wired to the Google+ API by listing your package name in the google dev console and signing your apk (which you have done in chapter 4)
+    },
+    function (obj) {
+      alert(JSON.stringify(obj)); // do something useful instead of alerting
+    },
+    function (msg) {
+      alert('error: ' + msg);
+    }
+    );}
+	
+	
+	
+	
+  </script>	
+</head>
+<body ng-app="mainApp" >
+<div class="spinner">
+    <img src="images/loading.gif" alt="Loading..."/>
+</div>
+
+<div ng-view  anim-class class="view">
+	<!--div ng-view class="fade"-->
+		<ng-view class='mainview'>	
+		</ng-view>
+	</div>
+	
+	
+</body>
+<style>
+div.spinner
+{
+    display: none;
+    width:100px;
+    height: 100px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align:center;
+    margin-left: -50px;
+    margin-top: -100px;
+    z-index:2;
+    overflow: auto;
+}    
+</style>
+</html>

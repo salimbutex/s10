@@ -1,0 +1,44 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "cordova-plugin-themeablebrowser": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "phonegap-facebook-plugin": {
+            "APP_ID": "965020226892015",
+            "APP_NAME": "studysesh",
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        }
+    },
+    "dependent_plugins": {}
+}

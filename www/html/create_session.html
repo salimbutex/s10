@@ -1,0 +1,65 @@
+<div class="title">
+		<div class="center-block"><a href='#/session'><i  style='float:left;' class="fa fa-arrow-left"></i></a>Create Session</div>
+</div>
+<div class="extra_space">&nbsp;</div>
+<div class="container">
+	<div class="col-xs-12"  ng-swipe-left="sc()">
+	   <form role="form" name='loginForm' novalidate>
+	     <p class="help-block" >{{ findError }} {{ loginError }}<p>
+		 <div class="form-group">
+		  <!--select  class="form-control" name='institute' data-ng-model="userForm.institute" ng-change='fetchCourse()'>
+		  <option ng-repeat='o in options' value='{{ o.id }}'>{{ o.name }}</option>
+		  </select>		  
+		   <p ng-show="loginForm.institute.$invalid && !loginForm.institute.$pristine" class="help-block">Please enter a valid institute.<p>
+		</div-->
+
+		 <div class="form-group" >
+		  <select  class="form-control" name='professor' data-ng-model="userForm.professor" ng-change="getValue();">
+			<option value=""> Select Professor</option>		  
+		  <option ng-repeat='o in professor' value='{{ o.id }}'>{{ o.professor }} </option>
+		  </select>		  
+		   <p ng-show="loginForm.courses.$invalid && !loginForm.courses.$pristine" class="help-block">Please select professor.</p>
+		</div>
+		
+		<!--div class="form-group" ng-show="getSelection"-->
+		<div class="form-group">
+		  <select  class="form-control" name='courses' data-ng-model="userForm.courses" ng-change="getCourseValue();">	
+		<option value=""> Select Course</option>				  
+		  <option ng-repeat='o in courseoptions' value='{{ o.id }}'>{{ o.name }} ({{ o.course_number }})-{{ o.instructor }}</option>
+		  </select>		  
+		   <p ng-show="loginForm.courses.$invalid && !loginForm.courses.$pristine" class="help-block">Please enter a valid course.</p>
+		</div>	
+		
+		
+		
+		<!--div class="form-group" ng-show="getTime"-->
+		<div class="form-group">
+		  <!--input type="datetime-local" class="form-control" id="email"  name='date' ng-model="userForm.date" placeholder="Time"-->
+		  <select class="form-control" name='time' id="time" data-ng-model="userForm.time" >
+			<option value=""> Select Time</option>		
+		  <option ng-repeat='o in timeoptions' value='{{ o.time }}'>{{ o.week}} - {{ o.time }} </option>
+		  </select>	
+		   <!--p ng-show="loginForm.date.$invalid && !loginForm.date.$pristine" class="help-block">Please enter a valid date.<p-->
+		</div>
+	
+	    <div class="form-group">
+		  <input type="text" class="form-control" id="email"  name='location' ng-model="userForm.location" placeholder="Location">
+		   <p ng-show="loginForm.location.$invalid && !loginForm.location.$pristine" class="help-block">Please enter a valid location.<p>
+		</div>
+		
+		<div class="form-group" >
+		  <input type="datetime-local" class="form-control" id="email"  name='date' ng-model="userForm.date" placeholder="Date" style="width:16.9em !important;">		 
+		   <p ng-show="loginForm.date.$invalid && !loginForm.date.$pristine" class="help-block">Please enter a valid date.<p>
+		</div>
+	
+   <div class="form-group col-xs-12">
+	 <div class="btn-group col-xs-12">
+        <label class="btn btn-success col-xs-6" ng-model="userForm.session_type" uib-btn-radio="'1'" uncheckable>Private</label>
+        <label class="btn btn-success col-xs-6" ng-model="userForm.session_type" uib-btn-radio="'0'" uncheckable>Public</label>
+    </div>
+	</div>
+		<button ng-click='create_session()' class="submit col-xs-12 btn btn-default">Create Session</button>
+		<div class="small_extra_space col-xs-12">&nbsp;</div>
+	  </form>
+	  </div>	
+</div>

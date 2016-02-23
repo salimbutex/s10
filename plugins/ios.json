@@ -1,0 +1,123 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": [
+            {
+                "plugin": "cordova-plugin-googleplus",
+                "id": "cordova-plugin-googleplus",
+                "topLevel": true
+            }
+        ]
+    },
+    "config_munge": {
+        "files": {
+            "framework": {
+                "parents": {
+                    "CoreGraphics.framework": [
+                        {
+                            "xml": false,
+                            "count": 2
+                        }
+                    ],
+                    "AddressBook.framework": [
+                        {
+                            "xml": true,
+                            "count": 1
+                        }
+                    ],
+                    "CoreText.framework": [
+                        {
+                            "xml": true,
+                            "count": 1
+                        }
+                    ],
+                    "StoreKit.framework": [
+                        {
+                            "xml": true,
+                            "count": 1
+                        }
+                    ],
+                    "SystemConfiguration.framework": [
+                        {
+                            "xml": true,
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"GooglePlus\"><param name=\"ios-package\" value=\"GooglePlus\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<access origin=\"https://accounts.google.com/*\" />",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "*-Info.plist": {
+                "parents": {
+                    "CFBundleURLTypes": [
+                        {
+                            "xml": "<array><dict><key>CFBundleTypeRole</key><string>Editor</string><key>CFBundleURLName</key><string>com.studysesh.phonegap</string><key>CFBundleURLSchemes</key><array><string>com.studysesh.phonegap</string></array></dict><dict><key>CFBundleTypeRole</key><string>Editor</string><key>CFBundleURLName</key><string>REVERSED_CLIENT_ID</string><key>CFBundleURLSchemes</key><array><string>com.studysesh.phonegap</string></array></dict></array>",
+                            "count": 1
+                        }
+                    ],
+                    "LSApplicationQueriesSchemes": [
+                        {
+                            "xml": "<array><string>com.studysesh.phonegap</string><string>com.studysesh.phonegap</string><string>com-google-gidconsent</string><string>com-google-gidconsent-google</string><string>com.google.gppconsent.2.4.0</string><string>com.google.gppconsent.2.4.1</string></array>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "cordova-plugin-themeablebrowser": {
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        },
+        "phonegap-facebook-plugin": {
+            "APP_ID": "965020226892015",
+            "APP_NAME": "studysesh",
+            "PACKAGE_NAME": "com.studysesh.phonegap"
+        }
+    },
+    "dependent_plugins": {}
+}

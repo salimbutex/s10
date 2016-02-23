@@ -1,0 +1,13 @@
+<div class="title">
+		<div class="center-block"><a href='#/session'><i  style='float:left;' class="fa fa-arrow-left"></i></a>My Session</div>
+</div>
+<div class="extra_space">
+&nbsp;
+</div>
+<div class="container">
+	<div class="col-xs-12" style="margin-bottom:23px !important;">
+	<p style='color:#2e6da4;'>{{ findError }}</p>
+	    <a href='#/chat/{{ x.id }}/{{ x.course_name }}' ng-repeat='x in sessions'><button  uib-dropdown-toggle class="searchsession submit col-xs-12 btn btn-default">{{ x.course_name | capitalize }} <!---{{ x.instructor}} -->
+		<i  ng-class="x.session_type == 1 ? 'status fa fa-lock' : 'status fa fa-unlock'"></i><p>{{ x.date }}</p></button> <!--p  class="uib-dropdown-menu" aria-labelledby="simple-dropdown">This is a <strong>{{ x.session_type==1 ? "Private" : "Public" }}</strong> group.<strong style='color:#5CB85C;' ng-click='join( $index,x.id , x.session_type )'> {{ x.session_type==1 ? "Send request for join" : "Join now" }}</strong></p--></a>
+	</div>	
+</div>

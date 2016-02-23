@@ -1,0 +1,21 @@
+<div class="title">
+		<div class="center-block"><a href='#/session'><i  style='float:left;' class="fa fa-arrow-left"></i></a>Session Users</div>
+</div>
+<div class="extra_space">
+&nbsp;
+</div>
+<div class="container">
+	<div class="col-xs-12" style="margin-bottom:23px !important;">
+	<p style='color:#2e6da4;'>{{ findError }}</p>
+	
+	 <div ng-repeat='x in requests'>
+	    <button  uib-dropdown-toggle class="searchsession submit col-xs-12 btn btn-default">{{ x.name | capitalize }}
+		<!--{{ x.statusmem == 0 ? <a href='session_block(x.id)'>Block this User</a> : <a href='session_unblock(x.id)'>Unblock this User </a> }}--> 	
+		 - <strong ng-click='x.statusmem == 0 ? session_block(x.id) : session_unblock(x.id)' >{{ x.statusmem == 0 ? 'Block this User' : 'Unblock this User' }}</strong>
+		<!--strong ng-click='session_unblock(x.id)' ng-hide='x.statusmem'>Unblock this User </strong-->
+		</button> </div>
+		
+		
+		
+	</div>	
+</div>

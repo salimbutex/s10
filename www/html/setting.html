@@ -1,0 +1,64 @@
+<div class="title">
+		<div class="center-block"><a href='#/session'><i  style='float:left;' class="fa fa-arrow-left"></i></a>Setting<a href='#/my_created_session'><i  style='float:right;' class="fa fa-users"></i></a></div>
+</div>
+<div class="extra_space">&nbsp;</div>
+<div class="container">
+	<div class="col-xs-3 ">&nbsp;</div>
+	<div class="col-xs-6 center-block center pic">
+	<img src='{{ profilepic }}'>
+	<i ng-click='takePic();' class='fa fa-file-image-o fileIcon' ></i>	<i ng-click='takePic_();' class='fa fa-camera fileIcon' style='float:right;'></i>
+	</div>
+	<div class="col-xs-3 ">&nbsp;</div>
+	<div class="extra_space col-xs-12">
+	&nbsp;
+	</div>
+	<div class="col-xs-12"  ng-swipe-left="sc()">
+	   <form role="form" name='loginForm' novalidate>
+	     <p  class="help-block" >{{ registerError }}</p>
+		<div class="form-group">
+		  <input type="text" class="form-control" id="email"  name='first_name' ng-model="userForm.first_name" placeholder="First name">
+		   <p ng-show="loginForm.first_name.$invalid && !loginForm.first_name.$pristine" class="help-block">Please enter a valid First name.</p>
+		</div>
+		<div class="form-group">
+		  <input type="text" class="form-control" id="email"  name='last_name' ng-model="userForm.last_name" placeholder="Last name">
+		   <p ng-show="loginForm.last_name.$invalid && !loginForm.last_name.$pristine" class="help-block">Please enter a valid Last name.</p>
+		</div>
+		<div class="form-group">
+		  <input type="email" class="form-control" id="email"  name='email' ng-model="userForm.email" placeholder="Email">
+		   <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block">Please enter a valid email.</p>
+		</div>
+		<div class="form-group">
+		  <input type="text" class="form-control" id="email"  name='phone' ng-model="userForm.phone" placeholder="Phone">
+		   <p ng-show="loginForm.phone.$invalid && !loginForm.phone.$pristine" class="help-block">Please enter a valid phone.</p>
+		</div>
+		<div class="form-group">
+		   <select  class="form-control" name='institute' data-ng-model="userForm.institute">
+			<option ng-repeat='o in instituteoptions' value='{{ o.id }}'>{{ o.name }}</option>
+		  </select>	
+		   <p ng-show="loginForm.institute.$invalid && !loginForm.institute.$pristine" class="help-block">Please enter a valid institute.</p>
+		</div>	
+		
+		
+		<div class="form-group" ng-hide='fblogin'>
+		 <input type="password" class="form-control" id="pwd" ng-minlength=6 ng-model="userForm.oldpassword" ng-maxlength=18 name='oldpassword' placeholder="Enter current/old password">
+		 <!--p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine && !loginForm.password.$error.minlength && !loginForm.password.$error.maxlength" class="help-block">Please enter a valid password.</p-->
+		 <p class="error help-block" ng-show="loginForm.oldpassword.$error.minlength">
+                Too short!</p>
+		 <p class="error help-block" ng-show="loginForm.oldpassword.$error.maxlength">
+                Too long!</p>
+		</div>
+		
+		<div class="form-group">
+		 <input type="password" class="form-control" id="pwd" ng-minlength=6 ng-model="userForm.password" ng-maxlength=18 name='password' placeholder="Enter new password">
+		 <!--p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine && !loginForm.password.$error.minlength && !loginForm.password.$error.maxlength" class="help-block">Please enter a valid password.</p-->
+		 <p class="error help-block" ng-show="loginForm.password.$error.minlength">
+                Too short!</p>
+		 <p class="error help-block" ng-show="loginForm.password.$error.maxlength">
+                Too long!</p>
+		</div>
+		
+		<button type="submit" class="submit col-xs-12 btn btn-default" ng-click='processsettingForm()'>Save</button>
+		<div class="small_extra_space col-xs-12">&nbsp;</div>
+	</form>
+	</div>	
+</div>

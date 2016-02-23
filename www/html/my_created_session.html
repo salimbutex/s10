@@ -1,0 +1,18 @@
+<div class="title">
+		<div class="center-block"><a  href="javascript:history.back()" ><i  style='float:left;' class="fa fa-arrow-left"></i></a>My created session</div>
+</div>
+<div class="extra_space">
+&nbsp;
+</div>
+<div class="container">
+	<div class="col-xs-12">
+	<p style='color:#2e6da4;'>{{ findError }}</p>
+	    <a  ng-repeat='x in sessions'  uib-dropdown on-toggle="toggled(open)"><button   uib-dropdown-toggle class="searchsession submit col-xs-12 btn btn-default">{{ x.course_name | capitalize }} <!-- -{{ x.instructor}} -->
+		<i  ng-class="x.session_type == 1 ? 'status fa fa-lock' : 'status fa fa-unlock'"></i><p>{{ x.date }}</p></button> <p  class="uib-dropdown-menu" aria-labelledby="simple-dropdown"><strong style='color:#575748' ng-click='edit(x.id)'>Edit</strong> |  <strong ng-click='x.status=!x.status; live(x.id)' style='color:#FF8000'>{{ x.status==1?"Offline now":"Live Now"}}</strong>  |  <strong style='color:#D1291C' ng-click='session_delete(x.id)'>Delete</strong> |  
+		<!--strong style='color:#D1291C' ng-click='x.statusmem==1  ? session_unblock(x.courses) : session_block(x.courses)'>{{ x.statusmem==1?" Unblock":"Block" }}</strong-->
+		<strong ng-click='session_names(x.courses)' style='color:#FF8000'><!--{{ x.statusmem==1 ? "Unblock" : "Block" }} --> Block/Unblock</strong>
+		
+		
+		
+	</div>	
+</div>
